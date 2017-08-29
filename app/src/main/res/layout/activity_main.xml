@@ -4,26 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#263238"
+    android:background="#1E1F33"
     tools:context="com.sunlightmail.aisle7.MainActivity">
 
     <EditText
         android:id="@+id/userIdEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#323354"
+        android:drawableLeft="@drawable/icons8user24"
+        android:drawablePadding="16dp"
         android:ems="10"
         android:hint="User ID"
         android:inputType="number"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="66dp" />
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:textSize="24sp"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/userPasswordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#323354"
+        android:drawableLeft="@drawable/icons8lock24"
+        android:drawablePadding="16dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="152dp" />
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:textSize="24sp"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userIdEditText" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/a7_button"
+        android:text="Login"
+        android:textColor="#fff"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userPasswordEditText" />
 </android.support.constraint.ConstraintLayout>
