@@ -18,6 +18,7 @@ public class AssociateConnectionSession {
     private String userPassword;
     private Map<String, String> cookies;
     private boolean isLoggedIn;
+    //private String employeeName;
 
     public AssociateConnectionSession() {
         isLoggedIn = false;
@@ -55,8 +56,16 @@ public class AssociateConnectionSession {
         }
     }
 
-    public String getEmployeeName() {
-        return "Hola";
+    public WorkCalendar getMonthView() {
+
     }
 
+    /**
+     * Get employee schedule for set number of days.
+     * @param range Number of days, including today, to get.
+     * @return Schedule for set number of days.
+     */
+    public WorkCalendar getRangeView(int range) {
+
+    }
 }
