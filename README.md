@@ -1,1 +1,14 @@
 # Aisle 7
+Aisle 7 is an application to easily connect to Staples Associate Connections.
+
+### Features
+  - View monthly work schedule
+
+### Planned Features
+  - View weekly paycheck
+  - Google Calendar integration
+
+### TODO
+  - Save login information
+  - Offline view
+  - UI/UX improvements
