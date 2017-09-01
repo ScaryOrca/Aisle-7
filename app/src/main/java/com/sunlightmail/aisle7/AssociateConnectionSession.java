@@ -109,6 +109,11 @@ public class AssociateConnectionSession {
             Log.d("!!!!!", "Made it here.");
             Elements scrapedDates = scrapedPage.getElementsByClass("PSGROUPBOX");
 
+            // Get the day of the week the start of the month falls on.
+            String monthStartSt = "ACE_DERIVED_SCH_CAL_SCH_GB_6";
+            int monthStart = Integer.parseInt(monthStartSt.substring(monthStartSt.length() - 1));
+            Weekday wd = Weekday.values()[monthStart - 2];
+
             // This is needed because the calendar legend at the bottom of the page is part of the
             // class.
             scrapedDates.remove(scrapedDates.size() - 1);
@@ -119,7 +124,8 @@ public class AssociateConnectionSession {
                 if(sTime.isEmpty()) {
                     sTime = "No Data";
                 }
-                WorkDay newDate = new WorkDay(sDate, sTime, "Monday");
+                wd = wd.next();
+                WorkDay newDate = new WorkDay(sDate, sTime, wd.toString());
                 Log.d("!!!!!", "Made it here.");
                 currentMonth.addDate(newDate);
             }
@@ -128,9 +134,9 @@ public class AssociateConnectionSession {
             e.printStackTrace();
         }
 
-        for(int i = 0; i < 31; i++) {
+        /*for(int i = 0; i < 31; i++) {
             Log.d("!!!!!", currentMonth.getCalendar().get(i).getTime());
-        }
+        }*/
     }
 
     public WorkCalendar getMonthView() {

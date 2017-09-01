@@ -68,7 +68,7 @@ public class SessionActivity extends AppCompatActivity {
                 String currentTime = wd.getTime();
                 String currentDate = wd.getDate();
                 Log.d("!!!!!", currentDate + " " + currentTime + " " + currentDay);
-                ListDate listDate = new ListDate("MON", currentTime, "September " + (currentDate));
+                ListDate listDate = new ListDate(currentDay, currentTime, "September " + (currentDate));
                 listDates.add(listDate);
             }
             adapter = new DateAdapter(listDates, getApplicationContext());
