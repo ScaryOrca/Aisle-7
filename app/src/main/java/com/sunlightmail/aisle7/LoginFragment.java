@@ -37,7 +37,15 @@ public class LoginFragment extends Fragment {
                 userPassword = userPasswordEditText.getText().toString();
                 final LoginTest myLogin = new LoginTest();
 
+                // Trick to remove focus from inputs, don't want keyboard open on next fragment.
+                userIdEditText.setEnabled(false);
+                userPasswordEditText.setEnabled(false);
+
                 myLogin.execute();
+
+                // Enable focus, in case credentials need to be changed.
+                userIdEditText.setEnabled(true);
+                userPasswordEditText.setEnabled(true);
             }
         });
 
@@ -65,11 +73,14 @@ public class LoginFragment extends Fragment {
             if(result) {
                 //String test = mySession.getMonthView().getCalendar().get(28).getTime();
                 Toast.makeText(getActivity(), "Login was successful!", Toast.LENGTH_LONG).show();
-                ((MainActivity)getActivity()).setViewPager(0);
+                //((MainActivity)getActivity()).setViewPager(0);
+                Intent intent = new Intent(((MainActivity)getActivity()), SessionActivity.class);
+                startActivity(intent);
                 //Toast.makeText(getApplicationContext(), test, Toast.LENGTH_LONG).show();
             }
             else {
                 ((MainActivity)getActivity()).setViewPager(0);
+
                 Toast.makeText(getActivity(), "Error: Check login information.", Toast.LENGTH_LONG).show();
             }
         }
