@@ -31,6 +31,7 @@ public class AssociateConnectionSession {
         isLoggedIn = false;
         siteMap = new HashMap<>();
 
+        // Should probably be static final, no reason to set here.
         // As more features are added, more URLs will need to be added. This will make managing many
         // URLs much easier.
         siteMap.put("login", "https://associateconnection.staples.com/psp/psext/?cmd=login");
@@ -83,7 +84,15 @@ public class AssociateConnectionSession {
     public void resumeSession(Map<String, String> cookies) {
         this.cookies = cookies;
         isLoggedIn = true;
-        getMonthView();
+        siteMap = new HashMap<>();
+
+        // As more features are added, more URLs will need to be added. This will make managing many
+        // URLs much easier.
+        siteMap.put("login", "https://associateconnection.staples.com/psp/psext/?cmd=login");
+        // Fun Fact: You can append "?EMPLID=xxxxxxx" to view the schedule of any employee.
+        siteMap.put("workSchedule", "https://associateconnection.staples.com/psc/psext/EMPLOYEE/HRMS/c/ROLE_EMPLOYEE.SCH_EE_SCHEDULE.GBL");
+        siteMap.put("payCheck", "FILL_ME_IN");
+        //getMonthView();
     }
 
     /**
@@ -97,6 +106,7 @@ public class AssociateConnectionSession {
         try {
             currentMonth = new WorkCalendar();
             Document scrapedPage = Jsoup.connect(siteMap.get("workSchedule")).cookies(cookies).get();
+            Log.d("!!!!!", "Made it here.");
             Elements scrapedDates = scrapedPage.getElementsByClass("PSGROUPBOX");
 
             // This is needed because the calendar legend at the bottom of the page is part of the

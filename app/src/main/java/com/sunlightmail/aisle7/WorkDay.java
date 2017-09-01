@@ -8,6 +8,7 @@ public class WorkDay {
     private String date;
     private String time;
     private String weekDay;
+    // Month will possibly be added.
 
     public WorkDay(String date, String time, String weekDay) {
         this.date = date;

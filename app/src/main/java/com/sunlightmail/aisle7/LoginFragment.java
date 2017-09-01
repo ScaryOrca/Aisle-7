@@ -15,6 +15,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.Serializable;
+import java.util.Map;
+
 public class LoginFragment extends Fragment {
     private AssociateConnectionSession mySession;
     private String userId;
@@ -28,6 +31,10 @@ public class LoginFragment extends Fragment {
         final Button loginButton = (Button) view.findViewById(R.id.loginButton);
         final EditText userIdEditText = (EditText) view.findViewById(R.id.userIdEditText);
         final EditText userPasswordEditText = (EditText) view.findViewById(R.id.userPasswordEditText);
+
+        // Testing Calendar View
+        //Intent intent = new Intent(((MainActivity)getActivity()), SessionActivity.class);
+        //startActivity(intent);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +71,7 @@ public class LoginFragment extends Fragment {
                 e.printStackTrace();
                 return false;
             }
-            WorkCalendar testC = mySession.getMonthView();
+            //WorkCalendar testC = mySession.getMonthView();
             return true;
         }
 
@@ -74,7 +81,9 @@ public class LoginFragment extends Fragment {
                 //String test = mySession.getMonthView().getCalendar().get(28).getTime();
                 Toast.makeText(getActivity(), "Login was successful!", Toast.LENGTH_LONG).show();
                 //((MainActivity)getActivity()).setViewPager(0);
+                Map<String, String> myCookies = mySession.getCookies();
                 Intent intent = new Intent(((MainActivity)getActivity()), SessionActivity.class);
+                intent.putExtra("cookies", (Serializable) myCookies);
                 startActivity(intent);
                 //Toast.makeText(getApplicationContext(), test, Toast.LENGTH_LONG).show();
             }
