@@ -1,5 +1,5 @@
 # Aisle 7
-Aisle 7 is an application to easily connect to Staples Associate Connections.
+Aisle 7 is an application to easily connect to Staples Associate Connection.
 
 ### Features
   - View monthly work schedule
